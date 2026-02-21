@@ -2,7 +2,7 @@ from spade.agent import Agent
 from spade.behaviour import PeriodicBehaviour
 from spade.message import Message
 import asyncio
-from environment.environment import DisasterEnvironment
+from environment import DisasterEnvironment
 
 class SensorAgent(Agent):
     class MonitorBehaviour(PeriodicBehaviour):
@@ -14,7 +14,7 @@ class SensorAgent(Agent):
             event = self.env.generate_event()
             print(f"Sensor detected {event['event']} with severity {event['severity']}")
 
-            msg = Message(to="coordinator@xmpp.jp")
+            msg = Message(to="cord47@xmpp.jp")
             msg.set_metadata("performative", "inform")
             msg.body = f"{event['event']} with severity {event['severity']}"
             await self.send(msg)

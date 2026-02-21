@@ -24,7 +24,10 @@ class RescueAgent(Agent):
 
 async def main():
     agent = RescueAgent("rescueagent47@xmpp.jp", "123456")
-    await agent.start()
+
+    await agent.start(auto_register=True)
+    print("RescueAgent started!")
+
     try:
         while agent.is_alive():
             await asyncio.sleep(1)

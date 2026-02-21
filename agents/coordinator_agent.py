@@ -12,7 +12,7 @@ class CoordinatorAgent(Agent):
                 print(f"Coordinator received: {msg.body}")
 
                 # Send request to RescueAgent
-                request_msg = Message(to="rescue@xmpp.jp")
+                request_msg = Message(to="rescueagent47@xmpp.jp")
                 request_msg.set_metadata("performative", "request")
                 request_msg.body = f"Respond to: {msg.body}"
                 await inner_self.send(request_msg)
@@ -25,7 +25,7 @@ class CoordinatorAgent(Agent):
         self.add_behaviour(self.ListenBehaviour(), template)
 
 async def main():
-    agent = CoordinatorAgent("coordinator@xmpp.jp", "pass1234")
+    agent = CoordinatorAgent("cord47@xmpp.jp", "123456")
     await agent.start()
     try:
         while agent.is_alive():
