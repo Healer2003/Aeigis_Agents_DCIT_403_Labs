@@ -11,7 +11,6 @@ class CoordinatorAgent(Agent):
             if msg:
                 print(f"Coordinator received: {msg.body}")
 
-                # Send request to RescueAgent
                 request_msg = Message(to="rescueagent47@xmpp.jp")
                 request_msg.set_metadata("performative", "request")
                 request_msg.body = f"Respond to: {msg.body}"
